@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📚 Perpus<span>Ku</span></h1>
+    <p style="color:#64748B;">Manajemen Buku Sederhana - HTML CSS JS</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><h3>Total Judul</h3><p id="totalJudul">0</p></div>
+    <div class="stat"><h3>Total Stok</h3><p id="totalStok">0</p></div>
+    <div class="stat"><h3>Sedang Dipinjam</h3><p id="totalPinjam">0</p></div>
+    <div class="stat"><h3>Tersedia</h3><p id="totalTersedia">0</p></div>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <h2 id="formTitle">Tambah Buku Baru</h2>
+      <input type="hidden" id="editId">
+      <input type="text" id="judul" placeholder="Judul Buku">
+      <input type="text" id="penulis" placeholder="Penulis">
+      <select id="kategori">
+        <option value="Umum">Umum</option>
+        <option value="Teknologi">Teknologi</option>
+        <option value="Novel">Novel</option>
+        <option value="Sains">Sains</option>
+        <option value="Sejarah">Sejarah</option>
+      </select>
+      <input type="number" id="stok" placeholder="Jumlah Stok" min="1">
+      <button class="btn-primary" onclick="simpanBuku()">Simpan Buku</button>
+      <button class="btn-gray" style="width:100%; margin-top:8px; display:none;" id="btnBatal" onclick="batalEdit()">Batal Edit</button>
+    </div>
+
+    <div class="card">
+      <div class="toolbar">
+        <input type="text" id="cari" placeholder="Cari judul / penulis..." oninput="render()">
+        <select id="filterKategori" onchange="render()" style="max-width:140px;">
+          <option value="Semua">Semua</option>
+          <option value="Umum">Umum</option>
+          <option value="Teknologi">Teknologi</option>
+          <option value="Novel">Novel</option>
+          <option value="Sains">Sains</option>
+          <option value="Sejarah">Sejarah</option>
+        </select>
+      </div>
+      <div style="overflow:auto;">
+      <table>
+        <thead><tr><th>Buku</th><th>Kategori</th><th>Stok</th><th>Aksi</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="latt.js"></script>
+</body>
+</html>
